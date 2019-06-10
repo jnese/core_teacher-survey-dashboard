@@ -168,7 +168,7 @@ fig_wave2q2_preview <- fig_wave2q2 +
   theme(text = element_text(size = 10)) +
   labs(title = "Are ORF scores valuable for your teaching?")
 
-ggplot2::ggsave(fig_wave2q2_preview, filename = "C:/Users/Joe/Desktop/BRT/GRANT-CORE/Project/flexdashboard_teacher-survey/ORF_valuable.png")
+ggplot2::ggsave(fig_wave2q2_preview, filename = "C:/Users/Joe/Desktop/BRT/GRANT-CORE/Project/core-blog/_posts/2019-06-10-consequential-validity-teacher-surveys/ORF_valuable.png")
 ```
 
 ### wave2_q2 comments {.no-title} 
