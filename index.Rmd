@@ -14,7 +14,7 @@ library(rio)
 library(here)
 library(tidyverse)
 library(DT)
-
+library(plotly)
 #Colors
 #1= "#268bd2" 
 #2= "#dc322f"
@@ -74,7 +74,7 @@ Row {data-height=300}
 ### **`r header_2$q7`** 
 
 ```{r wave2_q7}
-wave_2 %>% 
+fig_wave2q7 <- wave_2 %>% 
   ggplot(aes(q7)) +
   geom_bar(fill = "#268bd2") + 
   theme_bw() +
@@ -82,13 +82,16 @@ wave_2 %>%
        y = "") +
   coord_flip() +
   scale_y_continuous(breaks = seq(0, 50, by = 10)) +
-  theme(text = element_text(size = 30))
+  theme(text = element_text(size = 20))
+
+ggplotly(fig_wave2q7) %>% 
+  config(displayModeBar = FALSE)
 ```
 
 ### **`r header_2$q13`** 
 
 ```{r wave2_q13}
-wave_2 %>% 
+fig_wave2q13 <- wave_2 %>% 
   filter(q13 != "") %>% 
   ggplot(aes(q13)) +
   geom_bar(fill = "#dc322f") + 
@@ -97,7 +100,10 @@ wave_2 %>%
        y = "") +
   coord_flip() +
   scale_y_continuous(breaks = seq(0, 50, by = 10)) +
-  theme(text = element_text(size = 30))
+  theme(text = element_text(size = 20))
+
+ggplotly(fig_wave2q13) %>% 
+  config(displayModeBar = FALSE)
 ```
 
 Row {data-height=300} 
@@ -106,7 +112,7 @@ Row {data-height=300}
 ### **`r header_2$q10`** {data-width=300}
 
 ```{r wave2_q10}
-wave_2 %>% 
+fig_wave2q10 <- wave_2 %>% 
   ggplot(aes(q10)) +
   geom_bar(fill = "#859900") + 
   theme_bw() +
@@ -114,7 +120,10 @@ wave_2 %>%
        y = "") +
   coord_flip() +
   scale_y_continuous(breaks = seq(0, 50, by = 10)) +
-  theme(text = element_text(size = 30))
+  theme(text = element_text(size = 20))
+
+ggplotly(fig_wave2q10) %>% 
+  config(displayModeBar = FALSE)
 ```
 
 ### wave2_q10 comments {.no-title}
@@ -142,7 +151,7 @@ Row {data-height=300}
 ### **`r header_2$q2`** {data-width=300}
 
 ```{r wave2_q2}
-wave_2 %>% 
+fig_wave2q2 <- wave_2 %>% 
   ggplot(aes(q2)) +
   geom_bar(fill = "#073642") + 
   theme_bw() +
@@ -152,6 +161,10 @@ wave_2 %>%
   scale_y_continuous(breaks = seq(0, 100, by = 20)) +
   theme(text = element_text(size = 30))
 
+ggplotly(fig_wave2q2) %>% 
+  config(displayModeBar = FALSE)
+
+ggplot2::ggsave(fig_wave2q2, filename = "C:/Users/Joe/Desktop/BRT/GRANT-CORE/Project/core-blog/_posts/2019-05-16-consequential-validity-teacher-surveys/ORF_valuable.png")
 ```
 
 ### wave2_q2 comments {.no-title} 
@@ -178,7 +191,7 @@ CORE Testing Procedures {data-icon="fa-headset"}
 ### **`r header_1$q2`** 
 
 ```{r wave1_q2}
-wave_1 %>% 
+fig_wave1q2 <- wave_1 %>% 
   ggplot(aes(q2)) +
   geom_bar(fill = "#268bd2") + 
   theme_bw() +
@@ -188,12 +201,14 @@ wave_1 %>%
   theme(text = element_text(size = 20)) + 
   coord_flip()
 
+ggplotly(fig_wave1q2) %>% 
+  config(displayModeBar = FALSE)
 ```
 
 ### **`r header_1$q3`** 
 
 ```{r wave1_q3}
-wave_1 %>% 
+fig_wave1q3 <- wave_1 %>% 
   mutate(q3 = factor(q3,
                      levels = c("Very uncomfortable", "Somewhat uncomfortable", "Neutral", "Somewhat comfortable", "Very comfortable"))) %>% 
   ggplot(aes(q3)) +
@@ -206,6 +221,9 @@ wave_1 %>%
    scale_y_continuous(breaks = seq(0, 60, by = 10)) +
   theme(text = element_text(size = 20)) + 
   coord_flip()
+
+ggplotly(fig_wave1q3) %>% 
+  config(displayModeBar = FALSE)
 ```
 
 Comments {data-icon="fa-comment"}
@@ -218,7 +236,7 @@ Row {data-height=350}
 ### **`r header_1$q7`**
 
 ```{r wave1_q7, fig.width = 10, fig.asp = .66}
-wave_1 %>% 
+fig_wave1q7 <- wave_1 %>% 
   ggplot(aes(q7)) +
   geom_bar(fill = "#268bd2") + 
   theme_bw() +
@@ -228,8 +246,10 @@ wave_1 %>%
   scale_y_continuous(breaks = seq(0, 60, by = 10)) +
   theme(text = element_text(size = 20))
 
-ggsave(plot = last_plot(), filename = here::here("CORE_v_ORF.png"))
+#ggsave(plot = last_plot(), filename = here::here("CORE_v_ORF.png"))
 
+ggplotly(fig_wave1q7) %>% 
+  config(displayModeBar = FALSE)
 ```
 
 Row {.tabset}
