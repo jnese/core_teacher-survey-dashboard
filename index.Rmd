@@ -159,12 +159,16 @@ fig_wave2q2 <- wave_2 %>%
        y = "") +
   coord_flip() +
   scale_y_continuous(breaks = seq(0, 100, by = 20)) +
-  theme(text = element_text(size = 30))
+  theme(text = element_text(size = 20))
 
 ggplotly(fig_wave2q2) %>% 
   config(displayModeBar = FALSE)
 
-ggplot2::ggsave(fig_wave2q2, filename = "C:/Users/Joe/Desktop/BRT/GRANT-CORE/Project/core-blog/_posts/2019-05-16-consequential-validity-teacher-surveys/ORF_valuable.png")
+fig_wave2q2_preview <- fig_wave2q2 +
+  theme(text = element_text(size = 10)) +
+  labs(title = "Are ORF scores valuable for your teaching?")
+
+ggplot2::ggsave(fig_wave2q2_preview, filename = "C:/Users/Joe/Desktop/BRT/GRANT-CORE/Project/flexdashboard_teacher-survey/ORF_valuable.png")
 ```
 
 ### wave2_q2 comments {.no-title} 
