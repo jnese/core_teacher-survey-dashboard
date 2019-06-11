@@ -3,6 +3,8 @@ title: "Teacher Surveys"
 author: 
 output: 
   flexdashboard::flex_dashboard:
+    navbar:
+      - { title: "CORE Blog Study", icon: "fa-home", href: "https://jnese.github.io/core-blog/" }
     theme: yeti
     orientation: rows
     vertical_layout: fill
